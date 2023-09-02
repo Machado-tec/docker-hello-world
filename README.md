@@ -23,6 +23,20 @@ Para executar sua imagem Docker recém-criada, use o seguinte comando:
 
 ```bash
 sudo docker run -p 80:80 my-php 
+
+# Iterativo
+sudo docker run -p 8080:80 -it my-php
+
+# Desatachado
+sudo docker run -p 8080:80 -d my-php
+
+# Listar as imagens em execução (containers).
+sudo docker ps 
+
+#Listar as imagens tambem paradas, mas que já foram containerizadas. 
+sudo docker ps -a 
+
+
 ```
 
 O comando acima indica ao Docker para mapear a porta 80 do seu container para a porta 80 do seu host.
@@ -33,6 +47,9 @@ Para atribuir uma tag à sua imagem Docker, utilize o comando `docker tag`. Subs
 
 ```bash
 sudo docker tag my-php:latest <seu-username-dockerhub>/my-php:<tagname>
+# Rodamos esta em aula: 
+sudo docker tag my-php:latest xadrak/my-php 
+
 ```
 Isso marcará a imagem 'my-php' com a tag especificada.
 
@@ -42,6 +59,8 @@ Uma vez que sua imagem está marcada, você pode publicá-la no Docker Hub usand
 
 ```bash
 sudo docker push <seu-username-dockerhub>/my-php:<tagname>
+# Rodamos esta em aula
+sudo docker push xadrak/my-php:latest 
 ```
 Este comando irá publicar a imagem 'my-php' com a tag especificada no Docker Hub.
 
